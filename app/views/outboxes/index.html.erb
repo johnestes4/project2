@@ -1,14 +1,11 @@
-inbox
-
-outbox
-<h2><%= link_to("Compose Message", new_outbox_message_path) if @current_user %></h2>
+<h2><%= link_to("Compose Message", new_outbox_message_path(@outbox)) if @current_user %></h2>
 
 <ul>
   <% @messages.each do |message| %>
     <li>
       <% sender = User.find(message.sender_id) %>
       <% recipient = User.find(message.recipient_id) %>
-      <%= link_to "#{sender.username} - #{recipient.username} #{message.content}" %>
+      <%= link_to "#{sender.username} - #{recipient.username}", message_path %>
     </li>
   <% end %>
 </ul>
