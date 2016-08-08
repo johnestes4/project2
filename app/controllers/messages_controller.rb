@@ -18,6 +18,10 @@ class MessagesController < ApplicationController
     redirect_to outbox_messages_path
   end
 
+  def show
+    @message = Message.find(params[:id])
+  end
+
   private
   def message_params
     params.require(:message).permit(:sender_id, :recipient_id, :content)

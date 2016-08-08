@@ -2,10 +2,12 @@
 
 <ul>
   <% @messages.each do |message| %>
-    <li>
-      <% sender = User.find(message.sender_id) %>
-      <% recipient = User.find(message.recipient_id) %>
-      <%= link_to "#{sender.username} - #{recipient.username}", message_path %>
-    </li>
+    <% if message.sender_id == @current_user.id %>
+      <li>
+        <% sender = User.find(message.sender_id) %>
+        <% recipient = User.find(message.recipient_id) %>
+        <%= link_to "#{sender.username} - #{recipient.username}", outbox_message_path(message) %>
+      </li>
+    <% end %>
   <% end %>
 </ul>

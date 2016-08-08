@@ -3,6 +3,7 @@ class OutboxesController < ApplicationController
   end
   def show
     @messages = Message.all
+    @users = User.all
   end
 
 end

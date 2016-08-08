@@ -1,0 +1,8 @@
+<% sender = User.find_by(params[@message.sender_id]) %>
+<% recipient = User.find_by(params[@message.recipient_name]) %>
+
+
+<h3>From: <%= sender.username %></h3>
+<h3>To: <%= @message.recipient_name %></h3>
+
+<p><%= @message.content %> </p>
