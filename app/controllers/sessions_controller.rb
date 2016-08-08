@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
     input_username = params[:user][:username]
     if User.exists?(username: input_username)
       @user = User.find_by(username: input_username)
-      if @user.password === params[:user][:password]
+      if @user.authenticate(params[:user][:password])
         flash[:notice] = "You're signed in!"
         session[:user_id] = @user.id
         redirect_to root_path

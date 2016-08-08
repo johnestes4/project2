@@ -3,11 +3,16 @@ class ApplicationController < ActionController::Base
   before_action :get_current_user
 
   def get_current_user
-  if User.exists?(session[:user_id])
-    @current_user = User.find(session[:user_id])
-  else
-    @current_user = nil
+    if User.exists?(session[:user_id])
+      @current_user = User.find(session[:user_id])
+    else
+      @current_user = nil
+    end
   end
-end
+
+  def authorize
+    redirect_to '/' unless current_user
+  end
+
 
 end

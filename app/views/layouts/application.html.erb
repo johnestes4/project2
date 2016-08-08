@@ -14,13 +14,13 @@
       <% if @current_user %>
         <%= link_to "Welcome, #{@current_user.username}!", user_path(@current_user) %>
         <%= link_to "Sign Out", session_path, method: :delete %>
+        <%= link_to "Inbox", inbox_path %>
+        <%= link_to "Outbox", outbox_path %>
       <% else %>
         <%= link_to "Sign Up", new_user_path %>
         <%= link_to "Sign In", new_session_path %>
       <% end %>
 
-      <%= link_to "Inbox", inbox_path %>
-      <%= link_to "Outbox", outbox_path %>
     </nav>
     <% flash.each do |type, message| %>
       <p class="<%= type %>"><%= message %></p>

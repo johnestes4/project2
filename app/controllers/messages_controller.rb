@@ -1,5 +1,4 @@
 class MessagesController < ApplicationController
-
   def index
     redirect_to show_path
   end
