@@ -1,7 +1,7 @@
 class MessagesController < ApplicationController
 
   def index
-    @messages = Message.all
+    redirect_to show_path
   end
 
   def new
@@ -15,7 +15,7 @@ class MessagesController < ApplicationController
     recipient = User.find_by(:username => params[:message][:recipient_name])
     @users = User.all
     @message = Message.create!(:sender_id => @current_user.id, :recipient_id => recipient.id, :recipient_name => params[:message][:recipient_name], :content => params[:message][:content])
-    redirect_to outbox_messages_path
+    redirect_to outbox_path
   end
 
   def show

@@ -1,5 +1,5 @@
-<% sender = User.find_by(params[@message.sender_id]) %>
-<% recipient = User.find_by(params[@message.recipient_name]) %>
+<% sender = User.find(@message.sender_id) %>
+<% recipient = User.find(@message.recipient_id) %>
 
 
 <h3>From: <%= sender.username %></h3>

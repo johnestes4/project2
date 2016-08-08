@@ -1,8 +1,10 @@
 <h2><%= link_to("Compose Message", new_outbox_message_path) if @current_user %></h2>
 
 <ul>
+  <% outbox_number = 0 %>
   <% @messages.each do |message| %>
     <% if message.recipient_id == @current_user.id %>
+    <% outbox_number = outbox_number + 1 %>
       <li>
         <% sender = User.find(message.sender_id) %>
         <% recipient = User.find(message.recipient_id) %>
@@ -10,4 +12,5 @@
       </li>
     <% end %>
   <% end %>
+  <p> <%= outbox_number %> messages </p>
 </ul>
