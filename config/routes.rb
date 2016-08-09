@@ -10,5 +10,7 @@ Rails.application.routes.draw do
     resources :messages
   end
   resource :session
+  get '/users/:id/conversation', to: 'users#conversation'
+
 
 end

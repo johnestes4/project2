@@ -11,6 +11,11 @@ class UsersController < ApplicationController
     @user = User.new
   end
 
+  def conversation
+    @user = User.find(params[:id])
+    @messages = Message.all
+  end
+
   def create
     @user = User.new(user_params)
     if @user.save
@@ -27,6 +32,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @messages = Message.all
   end
 
   def edit

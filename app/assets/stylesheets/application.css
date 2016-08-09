@@ -30,7 +30,11 @@ body {
 nav {
   text-align: center;
 }
-.nav {}
+nav a {
+  border-right: 1px black solid;
+  padding-left: 1%;
+  padding-right: 1%;
+}
 a {
   text-decoration: none;
   color: rgb(100, 100, 255);

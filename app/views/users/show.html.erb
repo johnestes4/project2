@@ -1,6 +1,19 @@
 <h2><%= @user.username %></h2>
 
 <% if @user.id != @current_user.id %>
+<% messages = @messages.sort_by{ |m| m[:created_at]}.reverse!  %>
+<% messages.each do |message| %>
+  <% if (message.sender_id == @current_user.id && message.recipient_id == @user.id) || (message.sender_id == @user.id && message.recipient_id == @current_user.id)  %>
+    <div class="message-inbox">
+      <div class="sender"><% sender = User.find(message.sender_id) %></div>
+      <div class="recipient"><% recipient = User.find(message.recipient_id) %></div>
+      <div class="to-from"><%= link_to "To #{recipient.username}", inbox_message_path(message) %></div>
+      <div class="timestamp"><%= message.created_at %></div>
+      <div class="content-preview"><%= message.content %></div>
+    </div>
+  <% end %>
+<% end %>
+
   <h3>Send <%= @user.username %> a Lettr</h3>
   <% new_message = Message.new %>
   <%= form_for([Outbox,new_message], :url => url_for(:controller => 'messages', :action => 'create')) do |f| %>
