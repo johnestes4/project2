@@ -1,1 +1,24 @@
 <h2><%= @user.username %></h2>
+
+<% if @user.id != @current_user.id %>
+  <h3>Send <%= @user.username %> a Lettr</h3>
+  <% new_message = Message.new %>
+  <%= form_for([Outbox,new_message], :url => url_for(:controller => 'messages', :action => 'create')) do |f| %>
+    <%= f.hidden_field :recipient_name, :value => @user.username %>
+
+    <%= f.text_field :content %>
+
+    <%= f.submit "Send" %>
+  <% end %>
+<% else %>
+  <h3>This is you!</h3>
+  <h3>Send yourself a Lettr</h3>
+  <% new_message = Message.new %>
+  <%= form_for([Outbox,new_message], :url => url_for(:controller => 'messages', :action => 'create')) do |f| %>
+    <%= f.hidden_field :recipient_name, :value => @user.username %>
+
+    <%= f.text_field :content %>
+
+    <%= f.submit "Send" %>
+  <% end %>
+<% end %>

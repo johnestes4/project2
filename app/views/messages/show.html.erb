@@ -1,8 +1,24 @@
 <% sender = User.find(@message.sender_id) %>
 <% recipient = User.find(@message.recipient_id) %>
 
-
+<div class="message">
 <h3>From: <%= sender.username %></h3>
-<h3>To: <%= @message.recipient_name %></h3>
+<h3>To: <%= recipient.username %></h3>
 
 <p><%= @message.content %> </p>
+
+<% if sender.id != @current_user.id %>
+</div>
+<div class="message">
+<h3>Reply</h3>
+  <% new_message = Message.new %>
+  <%= form_for([Outbox,new_message], url: {action: "create"}, method: "create") do |f| %>
+    <%= f.hidden_field :recipient_name, :value => sender.username %>
+
+    <%= f.text_field :content %>
+
+    <%= f.submit "Send" %>
+
+  <% end %>
+<% end %>
+</div>
