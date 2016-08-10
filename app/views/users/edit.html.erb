@@ -1,8 +1,10 @@
 <h2>Edit Your Profile</h2>
-<%= form_for @user do |f| %>
-  
+<%= form_for @current_user do |f| %>
+
   <%= f.label :username %>
   <%= f.text_field :username %>
 
-  <%= f.submit "Submit" %>
+  <%= f.submit %>
 <% end %>
+<br>
+<div class="to-from">(this doesn't work)</div>

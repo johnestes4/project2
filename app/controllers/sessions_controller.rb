@@ -11,7 +11,7 @@ class SessionsController < ApplicationController
       if @user.authenticate(params[:user][:password])
         flash[:notice] = "You're signed in!"
         session[:user_id] = @user.id
-        redirect_to root_path
+        redirect_to inbox_path
       else
         flash[:alert] = "Wrong password!"
         redirect_to new_session_path
@@ -24,7 +24,6 @@ class SessionsController < ApplicationController
 
   def destroy
     reset_session
-    flash[:alert] = "You're signed out!"
     redirect_to :root
   end
 

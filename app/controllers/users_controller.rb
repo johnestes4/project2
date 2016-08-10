@@ -41,10 +41,15 @@ class UsersController < ApplicationController
   end
 
   def update
-    @current_user.update(username: params[:user][:username])
-    binding.pry
+    user = @current_user
+    user.update(username: params[:user][:username])
+    # binding.pry
     redirect_to user_path
   end
+
+  def landing
+  end
+
 
   private
   def user_params
