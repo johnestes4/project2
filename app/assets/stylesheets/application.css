@@ -20,7 +20,7 @@ html, body {
  }
 body {
   font-family: 'Roboto', sans-serif;
-  background-color: rgb(230, 230, 240);
+  background-color: rgb(230, 230, 235);
   color: rgb(50, 50, 50);
 }
 .page-wrapper {
@@ -56,6 +56,7 @@ h1 {
   background-color: rgb(225, 225, 225);
   text-decoration: none;
   color: rgb(50, 50, 50);
+  float: none;
 }
 .to-from {
   color: rgb(50, 50, 50);
@@ -87,4 +88,8 @@ h1 {
 .content-preview a {
   text-decoration: none;
   color: rgb(50, 50, 50);
+}
+.delete {
+  float: right;
+  font-size: .9em;
 }

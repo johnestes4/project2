@@ -25,6 +25,7 @@
   <% end %>
 <% else %>
   <h3>This is you!</h3>
+  <h3><%= link_to "Change your profile name", edit_user_path(@current_user) %></h3>
   <h3>Send yourself a Lettr</h3>
   <% new_message = Message.new %>
   <%= form_for([Outbox,new_message], :url => url_for(:controller => 'messages', :action => 'create')) do |f| %>

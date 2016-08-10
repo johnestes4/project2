@@ -8,6 +8,8 @@
   <div class="message-name"><%= link_to "#{recipient.username}", user_path(recipient) %></div>
 
   <div class="content-preview"><%= @message.content %></div>
+  <div class="delete"><%= link_to "Delete This Message", inbox_message_path(@message), method: :delete, class: 'delete', data: {confirm: "This will delete the message for both the sender and the recipient! Are you sure?"} %></div>
+
 
   <% if sender.id != @current_user.id %>
   </div>

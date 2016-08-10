@@ -41,10 +41,9 @@ class UsersController < ApplicationController
   end
 
   def update
-    @user = User.find(params[:id])
-    redirect_to root_url unless @current_user == @user
-    @user.update(user_params)
-    redirect_to '/'
+    @current_user.update(username: params[:user][:username])
+    binding.pry
+    redirect_to user_path
   end
 
   private

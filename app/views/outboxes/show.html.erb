@@ -1,6 +1,6 @@
-<h2>Outbox</h2>
-
+<h2 class="which-box">Outbox</h2>
 <h2 class="compose"><%= link_to("Compose Message", new_outbox_message_path) if @current_user %></h2>
+
 
 <% outbox_number = 0 %>
 <% messages = @messages.sort_by{ |m| m[:created_at]}.reverse!  %>

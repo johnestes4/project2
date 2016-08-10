@@ -25,6 +25,13 @@ class MessagesController < ApplicationController
     @recipient = ""
   end
 
+  def destroy
+    @message = Message.find(params[:id])
+    @message.destroy
+    redirect_to inbox_path
+  end
+
+
   private
   def message_params
     params.require(:message).permit(:sender_id, :recipient_id, :content)
