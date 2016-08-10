@@ -10,9 +10,10 @@
     <div class="message-inbox">
       <div class="sender"><% sender = User.find(message.sender_id) %></div>
       <div class="recipient"><% recipient = User.find(message.recipient_id) %></div>
-      <div class="to-from"><%= link_to "From #{sender.username}", inbox_message_path(message) %></div>
+      <div class="to-from">From </div>
       <div class="timestamp"><%= message.created_at %></div>
-      <div class="content-preview"><%= message.content %></div>
+      <div class="message-name"><%= link_to "#{sender.username}", user_path(sender) %></div>
+      <div class="content-preview"><%= link_to "#{message.content}", inbox_message_path(message) %></div>
     </div>
   <% end %>
 <% end %>

@@ -1,6 +1,6 @@
 <h2>Outbox</h2>
 
-<h2><%= link_to("Compose Message", new_outbox_message_path) if @current_user %></h2>
+<h2 class="compose"><%= link_to("Compose Message", new_outbox_message_path) if @current_user %></h2>
 
 <% outbox_number = 0 %>
 <% messages = @messages.sort_by{ |m| m[:created_at]}.reverse!  %>
@@ -10,9 +10,10 @@
     <div class="message-inbox">
       <div class="sender"><% sender = User.find(message.sender_id) %></div>
       <div class="recipient"><% recipient = User.find(message.recipient_id) %></div>
-      <div class="to-from"><%= link_to "To #{recipient.username}", inbox_message_path(message) %></div>
+      <div class="to-from">To </div>
       <div class="timestamp"><%= message.created_at %></div>
-      <div class="content-preview"><%= message.content %></div>
+      <div class="message-name"><%= link_to "#{recipient.username}", user_path(recipient) %></div>
+      <div class="content-preview"><%= link_to "#{message.content}", inbox_message_path(message) %></div>
     </div>
   <% end %>
 <% end %>
