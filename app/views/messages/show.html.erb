@@ -2,18 +2,18 @@
 <% recipient = User.find(@message.recipient_id) %>
 
 <div class="message">
+  <div class="delete"><%= link_to "Delete This Message", inbox_message_path(@message), method: :delete, class: 'delete', data: {confirm: "This will delete the message for both the sender and the recipient! Are you sure?"} %></div>
   <div class="to-from">From </div>
   <div class="message-name"><%= link_to "#{sender.username}", user_path(sender) %></div>
   <div class="to-from">To </div>
   <div class="message-name"><%= link_to "#{recipient.username}", user_path(recipient) %></div>
 
   <div class="content-preview"><%= @message.content %></div>
-  <div class="delete"><%= link_to "Delete This Message", inbox_message_path(@message), method: :delete, class: 'delete', data: {confirm: "This will delete the message for both the sender and the recipient! Are you sure?"} %></div>
 
 
   <% if sender.id != @current_user.id %>
   </div>
-  <div class="message">
+  <div class="message reply">
   <h3>Reply</h3>
     <% new_message = Message.new %>
     <%= form_for([Outbox,new_message], url: {action: "create"}, method: "create") do |f| %>

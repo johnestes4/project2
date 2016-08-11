@@ -20,8 +20,17 @@ html, body {
  }
 body {
   font-family: 'Roboto', sans-serif;
-  background-color: rgb(230, 230, 235);
+  background-color: rgb(240, 240, 245);
   color: rgb(50, 50, 50);
+}
+header {
+  margin-top: -22px;
+  padding: 1%;
+  background-color: rgb(200, 200, 205);
+}
+h1 {
+  font-size: 3em;
+  margin: 15px;
 }
 .page-wrapper {
   margin-left: 10%;
@@ -31,8 +40,10 @@ nav {
   text-align: center;
 }
 nav a {
-  padding-left: 1%;
-  padding-right: 1%;
+  padding-left: 2%;
+  padding-right: 2%;
+  font-size: 1.1em;
+  font-weight: bold;
 }
 a {
   text-decoration: none;
@@ -61,15 +72,15 @@ h1 {
 .to-from {
   color: rgb(50, 50, 50);
   font-size: .7em;
-  margin: 0px;
-  padding: 0px;
-  margin-bottom: -5px;
+  margin-bottom: -3px;
+  padding-left: 1%;
 }
 .message-name {
   text-decoration: none;
   color: rgb(100, 100, 255);
   font-size: 1.1em;
   margin-bottom: -2px;
+  padding-left: 1%;
 }
 .message-name:hover {
   text-decoration: none;
@@ -77,12 +88,13 @@ h1 {
 }
 .timestamp {
   font-size: .6em;
+  padding-right: 1%;
   float: right;
   color: rgb(50, 50, 50);
 }
 .content-preview {
   font-size: 1em;
-  padding-bottom: 4%;
+  padding: 1% 1% 4% 1%;
   background-color: rgb(245, 245, 245);
 }
 .content-preview a {
@@ -92,4 +104,7 @@ h1 {
 .delete {
   float: right;
   font-size: .9em;
+}
+.reply {
+  padding: 0% 5% 5% 5%;
 }

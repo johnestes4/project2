@@ -1,7 +1,20 @@
-<p>Welcome to Lettr.</p>
+<div class="message">
+  <div class="to-from">From </div>
+  <div class="message-name">Lettr</div>
+  <div class="to-from">To </div>
+  <div class="message-name">You</div>
 
-<p>A way to send messages to your friends.</p>
+  <div class="content-preview">
+    <p>Welcome to Lettr.</p>
 
-<p>It will probably break at some point. So please be nice. I'm working on it.</p>
+    <p>A way to send messages to your friends.</p>
 
-<p>Create an account or log in to get started.</p>
+    <p>Not all of it works yet. What's there might break. So please be nice. I'm working on it.</p>
+
+    <% if @current_user %>
+      <p>You're all logged in. Go to your Inbox or Outbox to see your Lettrs, or look at the Users to find a new friend.</p>
+    <% else %>
+      <p>Create an account or log in to get started.</p>
+    <% end %>
+  </div>
+</div>
