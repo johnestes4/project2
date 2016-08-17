@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
   before_create :create_remember_token
   before_save :normalize_fields
-
+  # this is super dope nice validation using regex
   EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   validates :username, :presence => true, :uniqueness => {case_sensitive: false}, :length => { :in => 3..20 }
   validates :email, :presence => true, :uniqueness => true, :format => {with: EMAIL_REGEX }

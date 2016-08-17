@@ -3,6 +3,8 @@ class ApplicationController < ActionController::Base
   before_action :get_current_user
 
   def get_current_user
+    # i think you could just do
+    # @current_user = User.find(session[:user_id]) because if it doesn't find it, it will just return nil anyway
     if User.exists?(session[:user_id])
       @current_user = User.find(session[:user_id])
     else

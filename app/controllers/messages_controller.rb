@@ -1,5 +1,6 @@
 class MessagesController < ApplicationController
   skip_before_filter :verify_authenticity_token, :only => :create
+  # this is cool, didn't know about this helper, i think it defaults to the controller name though based on what i just read
   wrap_parameters :message, include: [:sender_id, :recipient_id, :recipient_name, :content]
 
   def index
